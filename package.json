@@ -4,7 +4,14 @@
   "description": "Web API Blog Project",
   "main": "src/server/index.js",
   "scripts": {
-    "server": ""
+    "start": "npm run prod",
+    "server": "babel-node ./src/server",
+    "server:prod": "node ./dist/server",
+    "dev": "NODE_ENV=development npm-run-all server",
+    "clean": "rimraf dist",
+    "build": "babel ./src --out-dir dist",
+    "prod": "NODE_ENV=production npm-run-all clean build server:prod",
+    "watch": "nodemon"
   },
   "repository": {
     "type": "git",
