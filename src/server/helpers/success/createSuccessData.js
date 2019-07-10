@@ -8,7 +8,7 @@
 	message
 }) => {
 	return {
-		ok: true,
+		success: true,
 		message: message || '',
 		body: data
 	};
