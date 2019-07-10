@@ -3,7 +3,7 @@
 /**
  * Define error constants
  */
-export const errorTypes = {
+export const errorStatusTypes = {
 	BAD_REQUEST: 400,
 	CONFLICT: 409,
 	NOT_FOUND: 404,
