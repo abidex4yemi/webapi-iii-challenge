@@ -94,4 +94,8 @@ const allMiddlewareAsObject = {
  * Export all error middleware as an array
  * 
  */
-export const allErrorMiddlewareAsArray = Object.keys(allMiddlewareAsObject).map(key => allMiddlewareAsObject[key]);
+export const customErrorHandler = () => {
+	const allErrorMiddlewareAsArray = Object.keys(allMiddlewareAsObject).map(key => allMiddlewareAsObject[key]);
+
+	return allErrorMiddlewareAsArray;
+};

@@ -10,6 +10,7 @@ import express from 'express';
 import logger from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
+import { customErrorHandler } from './middleware';
 
 /**
  * Module constants
@@ -36,6 +37,9 @@ app.use(logger());
 
 // Set http headers for security reasons
 app.use(helmet());
+
+// handle all application error
+app.use(customErrorHandler());
 
 // Start application on port 2019
 app.listen(PORT, console.log(`Server running on port: ${PORT}`));
