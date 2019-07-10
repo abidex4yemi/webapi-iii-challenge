@@ -41,5 +41,9 @@ app.use(helmet());
 // handle all application error
 app.use(customErrorHandler());
 
+// app.get('/', (req, res) => {
+//   return res.status().json
+// });
+
 // Start application on port 2019
 app.listen(PORT, console.log(`Server running on port: ${PORT}`));
