@@ -1,11 +1,15 @@
 'use strict';
 
 import express from 'express';
-import { getPosts } from '../controllers/posts';
+import { getPosts, getPostById } from '../controllers/posts';
+import { validatePostParam } from '../middleware';
 
 const router = express.Router();
 
-// Handle posts route
+validatePostParam(router);
+
 router.route('/posts').get(getPosts);
+
+router.route('/posts/:id').get(getPostById);
 
 export { router as postRouter };

@@ -8,7 +8,7 @@
  * 
  * @returns {object} error
  */
-const createError = ({ message = 'Something went wrong, try again...', status = 500 }) => {
+export const createError = ({ message = 'Something went wrong, try again...', status = 500 }) => {
 	// create new error with message
 	const error = new Error(message);
 

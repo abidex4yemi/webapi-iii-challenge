@@ -6,9 +6,9 @@ const { OK } = successStatusTypes;
 /**
  * Get all posts
  * 
- * @param {*} req 
- * @param {*} res 
- * @param {*} next 
+ * @param {object} req 
+ * @param {object} res 
+ * @param {object} next 
  */
 export const getPosts = async (req, res, next) => {
 	try {
