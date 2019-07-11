@@ -3,13 +3,13 @@
  * 
  * @param {object} { data, message } 
  * 
- */ export const createSuccessData = ({
+ */ export const createSuccess = ({
 	data,
-	message
+	message = ''
 }) => {
 	return {
 		success: true,
-		message: message || '',
+		message,
 		body: data
 	};
 };
