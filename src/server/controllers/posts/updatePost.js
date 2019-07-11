@@ -28,7 +28,7 @@ export const updatePost = async (req, res, next) => {
 		return res.status(OK).json(
 			createSuccess({
 				data: updatedPost,
-				message: 'New post created'
+				message: 'Post updated'
 			})
 		);
 	} catch (error) {
