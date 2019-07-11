@@ -86,8 +86,8 @@ const genericError = (err, req, res, next) => {
 const allMiddlewareAsObject = {
 	badRequest,
 	notFound,
-	genericError,
-	resourceConflict
+	resourceConflict,
+	genericError
 };
 
 /**

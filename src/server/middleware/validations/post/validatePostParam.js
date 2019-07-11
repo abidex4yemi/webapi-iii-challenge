@@ -1,7 +1,7 @@
 'use strict';
 
-import { Post } from '../../model';
-import { createError, errorStatusTypes } from '../../helpers';
+import { Post } from '../../../model';
+import { errorStatusTypes } from '../../../helpers';
 
 const { NOT_FOUND } = errorStatusTypes;
 
