@@ -12,6 +12,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 import { customErrorHandler } from './middleware';
 import { successStatusTypes, createSuccessData } from './helpers';
+import { Post } from './model';
 
 /**
  * Module constants
@@ -46,8 +47,9 @@ app.use(helmet());
 app.use(customErrorHandler());
 
 // [GET] Handle home route
-app.get('/', (req, res) => {
-	return res.status(OK).json(createSuccessData({ message: 'Welcome to home route...', data: [] }));
+app.get('/', async (req, res) => {
+	const data = await Post.getAll();
+	return res.status(OK).json(createSuccessData({ message: 'Welcome to home route...', data }));
 });
 
 // Start application on port 2019

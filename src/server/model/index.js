@@ -3,7 +3,7 @@
  */
 import fs from 'fs';
 import path from 'path';
-import knex from '../config/database';
+import knex from '../../config/database';
 
 /**
  *  Get all model file
@@ -14,7 +14,7 @@ import knex from '../config/database';
 const getModelFiles = directory => {
 	const modelFiles = fs.readdirSync(directory).filter(file => {
 		if (file.indexOf('.') !== 0 && file !== 'index.js') {
-			return path.join(dir, file);
+			return path.join(directory, file);
 		}
 	});
 
@@ -24,10 +24,10 @@ const getModelFiles = directory => {
 // Get all model file based on this current directory
 const modelFiles = getModelFiles(__dirname);
 
-// Dynamically import all models
-export const models = modelFiles.reduce((modelsObj, filename) => {
-	const initialModel = import(filename);
-	const model = initialModel(knex);
+const models = modelFiles.reduce((modelsObj, filename) => {
+	const modelFile = require(`./${filename}`);
+
+	const model = modelFile(knex);
 
 	if (model) {
 		modelsObj[model.name] = model;
@@ -35,3 +35,5 @@ export const models = modelFiles.reduce((modelsObj, filename) => {
 
 	return modelsObj;
 }, {});
+
+module.exports = models;
