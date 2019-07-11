@@ -33,4 +33,13 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1', [postRouter]);
 
+// [all] Handle invalid request
+app.all('*', (req, res) => {
+	return res.status(404).json({
+		success: false,
+		message: 'Route does not exist...',
+		body: []
+	});
+});
+
 export default app;
