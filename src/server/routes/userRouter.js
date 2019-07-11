@@ -1,7 +1,7 @@
 'use strict';
 
 import express from 'express';
-import { getUsers, getUserById, getUserPosts, addUser, updateUser } from '../controllers/users';
+import { getUsers, getUserById, getUserPosts, addUser, updateUser, deleteUser } from '../controllers/users';
 import { validateUserParam, validateUser } from '../middleware';
 
 const router = express.Router();
@@ -16,7 +16,8 @@ router
 router
 	.route('/users/:id')
 	.get(getUserById)
-	.put(validateUser, updateUser);
+	.put(validateUser, updateUser)
+	.delete(deleteUser);
 
 router.route('/users/:id/posts').get(getUserPosts);
 
