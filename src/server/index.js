@@ -7,6 +7,7 @@ import logger from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
 import { postRouter } from './routes/postRouter';
+import { userRouter } from './routes/userRouter';
 import { customErrorHandler } from './middleware';
 import { successStatusTypes, createSuccessData } from './helpers';
 
@@ -31,7 +32,7 @@ app.get('/', (req, res) => {
 	return res.status(OK).json(createSuccessData({ message: 'Welcome to home route...', data: [] }));
 });
 
-app.use('/api/v1', [postRouter]);
+app.use('/api/v1', [postRouter, userRouter]);
 
 // [all] Handle invalid request
 app.all('*', (req, res) => {
